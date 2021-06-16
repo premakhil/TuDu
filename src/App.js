@@ -26,7 +26,7 @@ function App() {
             setToDos([...toDos, { text: toDo, id: Date.now(), status: false }]);
             setToDo('');
 
-            var docWidth = document.documentElement.offsetWidth;
+
 
 
 
@@ -112,6 +112,7 @@ function App() {
                                             if (obj2.id === obj.id) {
                                                 obj2.status = e.target.checked
                                                 obj.status = obj2.status
+
 
 
 
