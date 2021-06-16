@@ -3,12 +3,14 @@
 * {
   margin: 0;
   padding: 0;
-  box-sizing: border-box;
+  box-sizing: inherit;
+  
 }
 
 body {
   background-color: #1f1d2b;
   font-family: 'Poppins', sans-serif;
+  
 }
 
 
@@ -183,6 +185,64 @@ h2 {
 
 .todos {
   margin-top: 1rem;
+  
+}
+
+
+
+@media only screen and (max-width: 600px) {            /*for mobile */
+
+  .mainHeading {
+    margin-left: 1rem;
+  }
+
+  .subHeading {
+    margin-left: 1.5rem;
+    font-size: small;
+  }
+
+  .app .input {
+    width: 20em;
+  }
+
+  .app .todos .todo {
+    width: 20em;
+  }
+
+}
+
+
+
+@media screen and (device-aspect-ratio: 40/71) {         /* for iphone 5 */
+  .app .input {
+      width: 18em;
+    }
+
+    .app .todos .todo {
+    width: 18em;
+  }
+
+  .app h1, h2 {
+    color: white;
+    font-size: 1.2em;
+}
+
+
+
+
+}
+
+
+
+@media(max-width: 320px){                             /* for galaxy fold */
+  .app .input {
+    width: 15em;
+  }
+
+  .app .todos .todo {
+    width: 15em;
+
+  }
   
 }
 
