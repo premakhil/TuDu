@@ -26,7 +26,7 @@ function App() {
             setToDos([...toDos, { text: toDo, id: Date.now(), status: false }]);
             setToDo('');
 
-            var docWidth = document.documentElement.offsetWidth;
+
 
 
 
