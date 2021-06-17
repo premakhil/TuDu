@@ -17,15 +17,36 @@ function App() {
 
 
     const [toDo, setToDo] = useState('')
-    const [toDos, setToDos] = useState([])
+
+
+    const [toDos, setToDos] = useState(() => {
+
+
+        const localdata = localStorage.getItem("task");
+        return localdata ? JSON.parse(localdata) : []
+
+
+    })
+
+
     const [error, setError] = useState(false)
 
 
-    const add = () => {
-        if (toDo) {
-            setToDos([...toDos, { text: toDo, id: Date.now(), status: false }]);
-            setToDo('');
 
+
+
+
+    const add = () => {
+
+
+        if (toDo) {
+
+
+            setToDos([...toDos, { text: toDo, id: Date.now(), status: false }]);
+
+
+
+            setToDo('');
 
 
 
@@ -36,7 +57,10 @@ function App() {
 
         else {
 
+
+
             setError(true)
+
 
 
 
@@ -49,9 +73,12 @@ function App() {
 
     const del = (id) => {
 
+
         let newlist = toDos.filter((obj) => obj.id !== id)
 
         setToDos([...newlist])
+
+
 
 
 
@@ -86,6 +113,12 @@ function App() {
 
                 }} type="text" placeholder="🖊️ Add item..." />
                 <i style={{ color: '#6f6fc8' }} onClick={add} className="fas fa-plus"></i>
+
+                {
+                    localStorage.setItem("task", JSON.stringify(toDos))
+
+                }
+
             </div>
 
             {error && <p className="error-message">Please enter a task!</p>}
@@ -142,7 +175,7 @@ function App() {
 
 
 
-                                    {/* <p className='todo-text'>{obj.text}</p> */}
+
 
                                     {obj.status ? <p className='todo-text' style={{ textDecoration: 'line-through' }}>{obj.text}</p> : <p className='todo-text'>{obj.text}</p>}
 
